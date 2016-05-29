@@ -23,10 +23,11 @@ endif
 
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 ifeq ($(TARGET_DEVICE),jalebi)
-TARGET_KERNEL_APPEND_DTB := false
+BOARD_KERNEL_SEPARATED_DT := false
 else
-TARGET_KERNEL_APPEND_DTB := true
+BOARD_KERNEL_SEPARATED_DT := true
 endif
+TARGET_KERNEL_APPEND_DTB := true
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(PWD)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin/arm-eabi-
 
 USE_CLANG_PLATFORM_BUILD := true
