@@ -23,11 +23,10 @@ endif
 
 TARGET_COMPILE_WITH_MSM_KERNEL := true
 ifeq ($(TARGET_DEVICE),jalebi)
-BOARD_KERNEL_SEPARATED_DT := false
+TARGET_KERNEL_APPEND_DTB := false
 else
-BOARD_KERNEL_SEPARATED_DT := true
-endif
 TARGET_KERNEL_APPEND_DTB := true
+endif
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := $(PWD)/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8/bin/arm-eabi-
 
 BOARD_USES_GENERIC_AUDIO := true
@@ -92,6 +91,7 @@ BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
 ifneq ($(TARGET_DEVICE),jalebi)
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlyprintk
 endif
+BOARD_KERNEL_SEPARATED_DT := true
 
 BOARD_EGL_CFG := device/qcom/msm8916_32/egl.cfg
 
